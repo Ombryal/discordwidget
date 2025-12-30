@@ -49,12 +49,12 @@ function toggleSection(id) {
   const sections = document.querySelectorAll('.collapsible');
   sections.forEach(section => {
     if (section.id === id) {
-      section.classList.toggle('active');
+      section.classList.toggle('active'); // toggle only the clicked section
       if(section.classList.contains('active')){
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } else {
-      section.classList.remove('active');
+      section.classList.remove('active'); // close everything else
     }
   });
 }
