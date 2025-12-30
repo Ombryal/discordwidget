@@ -1,3 +1,4 @@
+// THEME TOGGLE
 const toggle = document.getElementById("themeToggle");
 
 // Auto theme from system
@@ -9,13 +10,12 @@ if (!localStorage.theme) {
   document.body.classList.add("light");
 }
 
-// Theme toggle
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
   localStorage.theme = document.body.classList.contains("light") ? "light" : "dark";
 });
 
-// Discord stats fetch with animation
+// STAT ANIMATION
 function animateNumberPlus(element, target = 100, duration = 1500) {
   const start = 0;
   const range = target - start;
@@ -32,29 +32,35 @@ function animateNumberPlus(element, target = 100, duration = 1500) {
   requestAnimationFrame(update);
 }
 
-// Animate both stats
 function fetchStats() {
   const membersEl = document.getElementById("members");
   const onlineEl = document.getElementById("online");
-
   animateNumberPlus(membersEl);
   animateNumberPlus(onlineEl);
 }
 
-// Call once on load
 fetchStats();
 
-// Collapsible sections logic
-function toggleSection(id) {
-  const sections = document.querySelectorAll('.collapsible');
-  sections.forEach(section => {
-    if (section.id === id) {
-      section.classList.toggle('active'); // toggle only the clicked section
-      if(section.classList.contains('active')){
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else {
-      section.classList.remove('active'); // close everything else
+// SCROLL-TRIGGERED FADE IN
+const scrollElements = document.querySelectorAll(".card, .rules, #moderators, .features");
+
+const elementInView = (el, offset = 0) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
+};
+
+const displayScrollElement = (el) => {
+  el.style.opacity = "1";
+  el.style.transform = "translateY(0)";
+};
+
+const handleScrollAnimation = () => {
+  scrollElements.forEach(el => {
+    if (elementInView(el, 100)) {
+      displayScrollElement(el);
     }
   });
-}
+};
+
+window.addEventListener("scroll", handleScrollAnimation);
+window.addEventListener("load", handleScrollAnimation);
