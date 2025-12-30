@@ -313,21 +313,21 @@ body.light .rules { background: rgba(255,255,255,0.85); color:#111; border:1px s
   .rules li::before { font-size:1.3rem; }
 }
 
-/* FIX SCROLL GLITCH */
+/* Fix over-scroll & smooth scrolling */
 html, body {
+  overscroll-behavior: contain; /* stops scroll chaining */
+  scroll-behavior: smooth;
   height: 100%;
-  overscroll-behavior: contain; /* stops over-scroll / bounce glitches */
-  scroll-behavior: smooth;      /* smooth scrolling for anchor links */
 }
 
-/* Ensure wrapper padding prevents content overflow */
-.wrapper {
-  padding-bottom: 80px; /* enough space at bottom for last cards */
+/* Reduce flicker from fixed pseudo-elements */
+body::before {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
-/* Remove excessive margins that push content too far */
-.features, 
-#moderators, 
-.rules {
-  margin-bottom: 40px; /* reasonable space between sections */
+/* Optional: reduce heavy shadow/blur stacking */
+.card, .moderator-inner-card, .features, .rules {
+  transform-style: preserve-3d; /* helps rendering */
+  backface-visibility: hidden;
 }
