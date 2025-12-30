@@ -146,44 +146,149 @@ body.light .features li { color:#333; }
   text-shadow: 0 0 12px rgba(88,101,242,1);
 }
 
-/* MODERATOR SECTION */
-#moderators { max-width:900px; width:100%; margin:30px 0; opacity:0; transform:translateY(20px); animation: fadeInUp 1s forwards 0.7s; }
-#moderators h2 { text-align:center; font-size:2rem; margin-bottom:20px; text-shadow: 0 0 8px rgba(88,101,242,0.7); }
-
-.moderator-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:20px; justify-items:center; }
-
-.mod-card {
-  background: rgba(20,22,34,0.85); backdrop-filter:blur(10px);
-  border-radius:16px; padding:20px; width:140px; height:140px;
-  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
-  transition: transform .2s ease, box-shadow .2s ease;
+/* MODERATOR SECTION WRAPPER */
+#moderators {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(20,22,34,0.9); /* outer card */
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: 0 0 35px rgba(88,101,242,0.6), 0 15px 50px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
-.mod-card-secondary:hover { transform:translateY(-5px) rotate(-1deg); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
 
+body.light #moderators {
+  background: rgba(255,255,255,0.85);
+  color: #111;
+}
+
+/* Section Heading */
+#moderators h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #5865f2;
+  text-shadow: 0 0 8px rgba(88,101,242,0.8);
+}
+
+/* Inner Cards Container */
+.moderator-inner-card {
+  background: rgba(25,28,45,0.85); /* inner card */
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+}
+
+body.light .moderator-inner-card {
+  background: rgba(255,255,255,0.9);
+  color: #111;
+}
+
+/* Admins & Mods Headings */
+#moderators h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+body.light #moderators h3 { color: #111; }
+
+/* Grid for admin/mod cards */
+.moderator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+/* Admin Card */
 .admin-card {
-  width:160px; height:160px; border:2px solid #5865f2;
-  box-shadow:0 0 15px rgba(88,101,242,0.7);
-  animation: pulse 3s ease-in-out infinite;
+  width: 140px;
+  height: 140px;
+  border: 2px solid #5865f2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(88,101,242,0.7);
+  text-align: center;
+  cursor: pointer;
+  animation: pulse 3s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.admin-card:hover { transform:scale(1.05); box-shadow: 0 0 25px rgba(88,101,242,0.9),0 15px 35px rgba(0,0,0,0.6); }
+.admin-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(88,101,242,0.9), 0 15px 35px rgba(0,0,0,0.6);
+}
 
-.mod-card-secondary { width:140px; height:140px; border:1px solid rgba(255,255,255,0.1); }
-.mod-name { font-weight:600; font-size:1.05rem; margin-bottom:6px; color:#fff; }
-.mod-handle { font-size:.85rem; opacity:.8; color:#b5b8cc; }
-body.light .mod-card, body.light .mod-name { background: rgba(255,255,255,0.85); color:#111; }
-body.light .mod-handle { color:#555; }
+/* Mods Card */
+.mod-card-secondary {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mod-card-secondary:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
 
-/* ANIMATIONS */
-@keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+/* Name & handle */
+.mod-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.mod-handle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  color: #b5b8cc;
+}
+
+/* Light theme */
+body.light .mod-name { color: #111; }
+body.light .mod-handle { color: #555; }
+
+/* Pulse Animation for Admins */
 @keyframes pulse {
-  0%,100% { transform: scale(1); }
+  0% { transform: scale(1); }
   50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
-@keyframes float {
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0);}
+
+/* Fade in scroll animation */
+#moderators.show { opacity:1; transform: translateY(0); }
+
+/* Mobile Adjustments */
+@media(max-width: 600px){
+  .moderator-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .admin-card { width: 120px; height: 120px; }
+  .mod-card-secondary { width: 100px; height: 100px; }
+  .mod-name { font-size: 0.9rem; }
+  .mod-handle { font-size: 0.7rem; }
 }
 
 /* MOBILE RESPONSIVENESS */
