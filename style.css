@@ -174,3 +174,83 @@ body.light .collapsible li { color:#333; }
   .card{grid-template-columns:1fr;padding:28px;}
   .widget{height:480px;}
 }
+
+/* MODERATOR SECTION */
+#moderators h3 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+body.light #moderators h3 {
+  color: #111;
+}
+
+/* Grid container for cards */
+.moderator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  justify-items: center;
+  margin-top: 10px;
+}
+
+/* Individual cards */
+.mod-card {
+  background: rgba(20,22,34,0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.light .mod-card {
+  background: rgba(255,255,255,0.85);
+  color: #111;
+}
+
+/* Card hover animation */
+.mod-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(88,101,242,0.6);
+}
+
+/* Moderator Name */
+.mod-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+body.light .mod-name {
+  color: #111;
+}
+
+/* Moderator Handle */
+.mod-handle {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  color: #b5b8cc;
+}
+
+body.light .mod-handle {
+  color: #555;
+}
+
+/* Optional: Neon outline for Admin cards */
+#moderators h3:first-of-type + .moderator-grid .mod-card {
+  border: 2px solid #5865f2; /* blue neon border for admins */
+  box-shadow: 0 0 15px rgba(88,101,242,0.7);
+}
