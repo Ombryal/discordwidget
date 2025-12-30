@@ -136,30 +136,58 @@ body.light .features li { color:#333; }
 
 /* COLLAPSIBLE SECTIONS */
 .collapsible {
-  max-width:800px; width:100%; background: rgba(20,22,34,0.85);
-  border-radius:20px; padding:0 30px; margin-top:10px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.4);
-  overflow:hidden; max-height:0; opacity:0;
+  max-width: 800px;
+  width: 100%;
+  background: rgba(20,22,34,0.85);
+  border-radius: 20px;
+  padding: 20px 30px; /* reduced padding for tighter feel */
+  margin: 10px 0;     /* small margin top and bottom */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
 }
 
-/* Show content only when active */
 .collapsible.active {
-  padding:20px;
-  max-height:1000px;
-  opacity:1;
+  max-height: 1000px;
+  opacity: 1;
+  padding: 20px 30px; /* consistent padding when open */
 }
-.collapsible h2,
+
+/* Headings inside collapsibles */
+.collapsible h2 {
+  font-size: 2rem;
+  margin-bottom: 15px; /* smaller gap under heading */
+}
+
+/* Lists inside collapsibles */
 .collapsible ol,
 .collapsible ul {
-  display:none;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.collapsible.active h2,
-.collapsible.active ol,
-.collapsible.active ul {
-  display:block;
+
+.collapsible li {
+  font-size: 1rem;
+  color: #ccc;
 }
-.collapsible li { font-size:1rem; color:#ccc; }
+
+body.light .collapsible {
+  background: rgba(255,255,255,0.85);
+  color: #111;
+}
+
+body.light .collapsible li {
+  color: #333;
+}
+
+/* First collapsible sits closer to button row */
+.button-row + .collapsible {
+  margin-top: 10px;
+}
 
 body.light .collapsible { background: rgba(255,255,255,0.85); color:#111; }
 body.light .collapsible li { color:#333; }
