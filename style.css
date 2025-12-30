@@ -347,3 +347,46 @@ body.light .rules {
   .rules li { padding-left: 40px; font-size: 1rem; }
   .rules li::before { font-size: 1.3rem; }
 }
+
+/* FIX MODERATOR SECTION SPACING */
+#moderators {
+  margin-top: 10px; /* same as rules */
+}
+
+#moderators h3 {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+#moderators .moderator-grid {
+  margin-bottom: 10px;
+}
+
+/* MOBILE MODERATOR FIX */
+@media (max-width: 600px) {
+
+  .moderator-grid {
+    grid-template-columns: repeat(2, 1fr); /* force 2 per row */
+    gap: 12px;
+  }
+
+  /* Admin cards slightly smaller on mobile */
+  .admin-card {
+    width: 130px;
+    height: 130px;
+  }
+
+  /* Mod cards smaller so they fit */
+  .mod-card-secondary {
+    width: 120px;
+    height: 120px;
+  }
+
+  .mod-name {
+    font-size: 0.95rem;
+  }
+
+  .mod-handle {
+    font-size: 0.8rem;
+  }
+}
