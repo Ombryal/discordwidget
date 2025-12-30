@@ -189,9 +189,6 @@ body.light .collapsible li {
   margin-top: 10px;
 }
 
-body.light .collapsible { background: rgba(255,255,255,0.85); color:#111; }
-body.light .collapsible li { color:#333; }
-
 /* FLOAT ANIMATION */
 @keyframes float {
   0%{transform:translateY(0);}
