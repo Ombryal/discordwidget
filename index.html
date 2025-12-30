@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Discord Community</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button id="themeToggle" aria-label="Toggle theme">☀ / 🌙</button>
+
+<div class="wrapper">
+
+  <!-- Main Card -->
+  <section class="card">
+
+    <div class="left">
+      <h1>Our Discord Server</h1>
+      <p class="subtitle">See the activity and vibe before you join.</p>
+
+      <!-- Live Stats -->
+      <div class="stats" id="stats">
+        <div class="stat">
+          <div class="num" id="members">0</div>
+          <div class="label">Members</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="online">0</div>
+          <div class="label">Online</div>
+        </div>
+        <div class="stat">
+          <div class="num">24/7</div>
+          <div class="label">Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="widget">
+        <iframe
+          src="https://discord.com/widget?id=1433645535583277129&theme=dark"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+      </div>
+
+      <a class="join" href="https://discord.gg/YOUR_INVITE" target="_blank">
+        Join the Server
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Buttons Row -->
+  <div class="button-row">
+    <button class="interactive-btn" onclick="toggleSection('rules')">Rules</button>
+    <button class="interactive-btn" onclick="toggleSection('moderators')">Moderators</button>
+  </div>
+
+  <!-- Collapsible Sections -->
+  <section class="collapsible" id="rules">
+    <h2>Server Rules</h2>
+    <ol>
+      <li>Respect everyone. No harassment, targeted insults, or personal attacks.</li>
+      <li>Zero discrimination. Racism, sexism, or any hate-based behavior is strictly forbidden.</li>
+      <li>No spam. Avoid flooding channels or excessive use of capital letters.</li>
+      <li>No hate speech. Any form of hate speech leads to an immediate ban.</li>
+      <li>Keep content appropriate. No nudity, sexual content, or offensive material—including profile pictures or custom statuses.</li>
+      <li>Respect staff requests. Offensive usernames or avatars must be changed when asked.</li>
+      <li>Voice channel etiquette. Only join channels when permitted and leave if requested.</li>
+      <li>Follow moderation instructions. Questions are allowed, but defiance is not.</li>
+      <li>Stay on topic. Use channels according to their intended purpose.</li>
+      <li>18+ only. Anyone under 18 will be immediately banned.</li>
+    </ol>
+  </section>
+
+  <section class="collapsible" id="moderators">
+    <h2>Moderators</h2>
+    <ul>
+      <li>Mod1 – Online</li>
+      <li>Mod2 – Offline</li>
+      <li>Mod3 – Online</li>
+      <li>Mod4 – Offline</li>
+    </ul>
+  </section>
+
+  <!-- Features Section at Bottom -->
+  <section class="features" id="features">
+    <h2>Why Join Us?</h2>
+    <ul>
+      <li>Friendly and active community</li>
+      <li>24/7 chat & support</li>
+      <li>Exclusive channels & events</li>
+      <li>Custom bots and tools</li>
+    </ul>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
