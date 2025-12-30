@@ -139,52 +139,23 @@ body.light .features li { color:#333; }
 
 /* COLLAPSIBLE SECTIONS */
 .collapsible {
-/* COLLAPSIBLE SECTIONS */
-.collapsible {
-  max-width: 800px;
-  width: 100%;
-  background: rgba(20,22,34,0.85);
-  border-radius: 20px;
-  padding: 0 30px;       /* no top/bottom padding initially */
-  margin-top: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
+  max-width:800px; width:100%; background: rgba(20,22,34,0.85);
+  border-radius:20px; padding:0 30px; margin-top:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  overflow:hidden; max-height:0; opacity:0;
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
 }
-
 .collapsible.active {
-  padding: 30px;         /* full padding when active */
-  max-height: 1000px;    /* large enough to show content */
-  opacity: 1;
+  padding:30px;
+  max-height:1000px;
+  opacity:1;
 }
+.collapsible h2 { font-size:2rem; margin-bottom:20px; }
+.collapsible ol, .collapsible ul { list-style-position: inside; display:flex; flex-direction:column; gap:10px; }
+.collapsible li { font-size:1rem; color:#ccc; }
 
-/* Only show heading and list when active */
-.collapsible h2,
-.collapsible ol,
-.collapsible ul {
-  display: none;
-}
-
-.collapsible.active h2,
-.collapsible.active ol,
-.collapsible.active ul {
-  display: block;
-}
-
-.collapsible li { 
-  font-size: 1rem; 
-  color: #ccc; 
-}
-
-body.light .collapsible { 
-  background: rgba(255,255,255,0.85); 
-  color: #111; 
-}
-body.light .collapsible li { 
-  color: #333; 
-}
+body.light .collapsible { background: rgba(255,255,255,0.85); color:#111; }
+body.light .collapsible li { color:#333; }
 
 /* FLOAT ANIMATION */
 @keyframes float {
@@ -205,7 +176,6 @@ body.light .collapsible li {
 }
 
 /* MODERATOR SECTION */
-/* HEADINGS */
 #moderators h3 {
   margin-top: 20px;
   margin-bottom: 12px;
@@ -219,7 +189,7 @@ body.light #moderators h3 {
   color: #111;
 }
 
-/* Grid layout */
+/* Grid container for cards */
 .moderator-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -228,7 +198,7 @@ body.light #moderators h3 {
   margin-top: 10px;
 }
 
-/* Base card */
+/* Individual cards */
 .mod-card {
   background: rgba(20,22,34,0.85);
   backdrop-filter: blur(10px);
@@ -241,7 +211,7 @@ body.light #moderators h3 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -250,34 +220,13 @@ body.light .mod-card {
   color: #111;
 }
 
-/* Admin specific */
-.admin-card {
-  width: 160px;
-  height: 160px;
-  border: 2px solid #5865f2; /* neon blue */
-  box-shadow: 0 0 15px rgba(88,101,242,0.7);
-  animation: float 3s ease-in-out infinite;
+/* Card hover animation */
+.mod-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(88,101,242,0.6);
 }
 
-.admin-card:hover {
-  transform: translateY(-8px) scale(1.08);
-  box-shadow: 0 0 25px rgba(88,101,242,0.9), 0 15px 35px rgba(0,0,0,0.6);
-}
-
-/* Mods secondary */
-.mod-card-secondary {
-  width: 140px;
-  height: 140px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-.mod-card-secondary:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-}
-
-/* Name & handle */
+/* Moderator Name */
 .mod-name {
   font-weight: 600;
   font-size: 1.05rem;
@@ -289,6 +238,7 @@ body.light .mod-name {
   color: #111;
 }
 
+/* Moderator Handle */
 .mod-handle {
   font-size: 0.85rem;
   opacity: 0.8;
@@ -299,95 +249,8 @@ body.light .mod-handle {
   color: #555;
 }
 
-/* Float animation for admins */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-
-/* RULES SECTION */
-.rules {
-  max-width: 900px;
-  width: 100%;
-  background: rgba(10,10,20,0.8);  /* darker glassy bg */
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  padding: 40px 30px;
-  margin-top: 20px;
-  box-shadow: 0 0 30px rgba(88,101,242,0.6), 0 10px 50px rgba(0,0,0,0.7);
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInDown 0.8s forwards 0.2s;
-  border: 1px solid rgba(88,101,242,0.5); /* neon-ish border */
-}
-
-body.light .rules {
-  background: rgba(255,255,255,0.85);
-  color: #111;
-  border: 1px solid rgba(88,101,242,0.4);
-}
-
-/* Rules Heading */
-.rules h2 {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  color: #5865f2;
-  text-shadow: 0 0 8px rgba(88,101,242,0.8);
-}
-
-body.light .rules h2 { color: #5865f2; }
-
-/* Rules List */
-.rules ol {
-  list-style: none;
-  counter-reset: rule-counter;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-/* Numbered Rule Items */
-.rules li {
-  position: relative;
-  font-size: 1.05rem;
-  padding-left: 50px;
-  line-height: 1.5;
-  color: #ccc;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.rules li::before {
-  counter-increment: rule-counter;
-  content: counter(rule-counter);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #5865f2;
-  text-shadow: 0 0 10px rgba(88,101,242,0.8);
-}
-
-/* Hover effect on rules */
-.rules li:hover {
-  transform: translateX(8px);
-  color: #fff;
-  text-shadow: 0 0 10px rgba(88,101,242,0.7);
-}
-
-body.light .rules li { color: #333; }
-
-/* Fade down animation */
-@keyframes fadeInDown {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile adjustments */
-@media(max-width: 900px){
-  .rules { padding: 30px 20px; }
-  .rules li { padding-left: 40px; font-size: 1rem; }
-  .rules li::before { font-size: 1.3rem; }
+/* Optional: Neon outline for Admin cards */
+#moderators h3:first-of-type + .moderator-grid .mod-card {
+  border: 2px solid #5865f2; /* blue neon border for admins */
+  box-shadow: 0 0 15px rgba(88,101,242,0.7);
 }
