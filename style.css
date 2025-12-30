@@ -313,21 +313,63 @@ body.light .rules { background: rgba(255,255,255,0.85); color:#111; border:1px s
   .rules li::before { font-size:1.3rem; }
 }
 
-/* Fix over-scroll & smooth scrolling */
+/* =========================
+   SCROLL & RENDER OPTIMIZATION
+   ========================= */
+
+/* Prevent over-scroll and smooth scrolling */
 html, body {
-  overscroll-behavior: contain; /* stops scroll chaining */
-  scroll-behavior: smooth;
   height: 100%;
+  overscroll-behavior: contain; /* stops bounce / over-scroll */
+  scroll-behavior: smooth;      /* smooth scrolling for anchor links */
 }
 
-/* Reduce flicker from fixed pseudo-elements */
+/* Reduce flicker from animated gradient + pseudo-elements */
+body, body::before {
+  will-change: transform, opacity, background-position;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Gradient background optimization */
 body::before {
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+/* Card & section optimizations */
+.card, 
+.features, 
+.rules, 
+#moderators, 
+.moderator-inner-card, 
+.widget {
   will-change: transform, opacity;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
-/* Optional: reduce heavy shadow/blur stacking */
-.card, .moderator-inner-card, .features, .rules {
-  transform-style: preserve-3d; /* helps rendering */
-  backface-visibility: hidden;
+/* Wrapper bottom padding to prevent content cutoff */
+.wrapper {
+  padding-bottom: 80px;
+}
+
+/* Reasonable spacing between sections */
+.features, 
+#moderators, 
+.rules {
+  margin-bottom: 40px;
+}
+
+/* Optional: smooth GPU acceleration for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .card, 
+  .features, 
+  .rules, 
+  #moderators, 
+  .moderator-inner-card, 
+  .widget {
+    transform: translateZ(0);
+  }
 }
