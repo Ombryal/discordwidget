@@ -276,3 +276,89 @@ body.light .mod-handle {
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
+
+/* RULES SECTION */
+.rules {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(10,10,20,0.8);  /* darker glassy bg */
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  margin-top: 20px;
+  box-shadow: 0 0 30px rgba(88,101,242,0.6), 0 10px 50px rgba(0,0,0,0.7);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 0.8s forwards 0.2s;
+  border: 1px solid rgba(88,101,242,0.5); /* neon-ish border */
+}
+
+body.light .rules {
+  background: rgba(255,255,255,0.85);
+  color: #111;
+  border: 1px solid rgba(88,101,242,0.4);
+}
+
+/* Rules Heading */
+.rules h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  color: #5865f2;
+  text-shadow: 0 0 8px rgba(88,101,242,0.8);
+}
+
+body.light .rules h2 { color: #5865f2; }
+
+/* Rules List */
+.rules ol {
+  list-style: none;
+  counter-reset: rule-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Numbered Rule Items */
+.rules li {
+  position: relative;
+  font-size: 1.05rem;
+  padding-left: 50px;
+  line-height: 1.5;
+  color: #ccc;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rules li::before {
+  counter-increment: rule-counter;
+  content: counter(rule-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #5865f2;
+  text-shadow: 0 0 10px rgba(88,101,242,0.8);
+}
+
+/* Hover effect on rules */
+.rules li:hover {
+  transform: translateX(8px);
+  color: #fff;
+  text-shadow: 0 0 10px rgba(88,101,242,0.7);
+}
+
+body.light .rules li { color: #333; }
+
+/* Fade down animation */
+@keyframes fadeInDown {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media(max-width: 900px){
+  .rules { padding: 30px 20px; }
+  .rules li { padding-left: 40px; font-size: 1rem; }
+  .rules li::before { font-size: 1.3rem; }
+}
