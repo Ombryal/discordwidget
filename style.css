@@ -321,6 +321,50 @@ body.light .collapsible li {
   opacity: 0.7;
 }
 
+/* ENSURE MODERATOR SECTION CAN RECEIVE INTERACTION */
+#moderators {
+  position: relative;
+  z-index: 2;
+}
+
+/* BASE CARD FIX */
+.mod-card {
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+  will-change: transform;
+}
+
+/* ADMIN HOVER POWER */
+.admin-card:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow:
+    0 0 30px rgba(88,101,242,0.9),
+    0 20px 40px rgba(0,0,0,0.6);
+  filter: brightness(1.15);
+}
+
+/* MOD HOVER (LESS POWER, STILL RESPECTABLE) */
+.mod-card-secondary:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow:
+    0 0 18px rgba(88,101,242,0.4),
+    0 15px 30px rgba(0,0,0,0.5);
+  filter: brightness(1.08);
+}
+
+/* MOBILE: KEEP HOVER FROM FEELING DEAD */
+@media (max-width: 600px) {
+  .mod-card:active {
+    transform: scale(0.96);
+  }
+}
+
 /* =====================
    ANIMATIONS
 ===================== */
