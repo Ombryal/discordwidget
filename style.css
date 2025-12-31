@@ -374,3 +374,55 @@ body::after {
   opacity:0.05;
 }
 @keyframes gradientMove {0%{transform:translate3d(0,0,0);}50%{transform:translate3d(100%,0,0);}100%{transform:translate3d(0,0,0);}}
+
+/* =========================
+   ADMIN GRID FIX
+   ========================= */
+.moderator-grid.admins {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Admin cards - circular rectangles */
+.admin-card {
+  width: 140px;
+  height: 140px;
+  border: 2px solid #5865f2;
+  border-radius: 24px; /* soft rounded corners */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(88,101,242,0.7);
+  text-align: center;
+  cursor: pointer;
+  animation: pulse 3s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.admin-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(88,101,242,0.9), 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/* Center the 3rd admin card */
+.moderator-grid.admins .admin-card:nth-child(3) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile adjustments */
+@media(max-width:600px){
+  .moderator-grid.admins { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .admin-card { width: 120px; height: 120px; border-radius: 20px; }
+}
