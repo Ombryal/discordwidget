@@ -532,3 +532,32 @@ body.light .rules li::before {
     max-width: 200px;
   }
 }
+
+/* =========================
+   MOBILE EDGE-TO-EDGE CARD
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .card,
+  .features,
+  .rules,
+  #moderators {
+    width: 100%;
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px; /* still premium, not brick */
+  }
+
+  /* Make main hero card feel wider */
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
