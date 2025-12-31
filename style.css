@@ -505,3 +505,30 @@ body.light .rules li::before {
     justify-self: center;
   }
 }
+
+/* =========================
+   MOBILE STATS FIX
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    justify-items: center;
+  }
+
+  /* First two stats stay side by side */
+  .stats .stat:nth-child(1),
+  .stats .stat:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  /* Third stat centered below */
+  .stats .stat:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 200px;
+  }
+}
