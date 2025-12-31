@@ -561,3 +561,42 @@ body.light .rules li::before {
     margin-right: auto;
   }
 }
+
+/* =========================
+   REMOVE MOBILE TAP HIGHLIGHT
+   ========================= */
+
+.admin-card,
+.mod-card-secondary,
+.interactive-btn,
+.join {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* =========================
+   CLEAN TOUCH FEEDBACK
+   ========================= */
+
+/* Admin touch feedback */
+.admin-card:active {
+  transform: scale(0.96);
+  box-shadow:
+    0 0 25px rgba(88,101,242,0.9),
+    0 0 60px rgba(88,101,242,0.4);
+}
+
+/* Mod touch feedback */
+.mod-card-secondary:active {
+  transform: scale(0.95);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Buttons */
+.interactive-btn:active,
+.join:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 16px rgba(88,101,242,0.4);
+}
